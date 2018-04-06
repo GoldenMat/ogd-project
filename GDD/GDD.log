@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.12.1)  6 APR 2018 19:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.12.1)  6 APR 2018 21:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -548,25 +548,25 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <Diagramma1.png, id=36, 370.38374pt x 323.2075pt>
 File: Diagramma1.png Graphic file (type png)
 <use Diagramma1.png>
-Package pdftex.def Info: Diagramma1.png  used on input line 162. on input line 
-162.
+Package pdftex.def Info: Diagramma1.png  used on input line 164. on input line 
+164.
 Package pdftex.def Info: Requested size: 195.0pt x 170.16486pt on input line 16
-2.
+4.
 <Diagramma2.png, id=38, 684.5575pt x 443.6575pt>
 File: Diagramma2.png Graphic file (type png)
 <use Diagramma2.png>
-Package pdftex.def Info: Diagramma2.png  used on input line 164. on input line 
-164.
+Package pdftex.def Info: Diagramma2.png  used on input line 166. on input line 
+166.
 Package pdftex.def Info: Requested size: 312.00119pt x 202.20972pt on input lin
-e 164.
+e 166.
  [10 <./Diagramma1.png>] [11 <./Diagramma2.png>]
-Overfull \hbox (24.17801pt too wide) in paragraph at lines 187--188
+Overfull \hbox (24.17801pt too wide) in paragraph at lines 189--190
 []\T1/cmr/bx/n/12 Frenzied Dead \T1/cmr/m/n/12 - An-other melee en-emy with fas
 ter at-tack speed/movement. 
  []
 
 [12] [13] [14] [15]
-Overfull \hbox (4.7356pt too wide) in paragraph at lines 225--226
+Overfull \hbox (4.7356pt too wide) in paragraph at lines 227--228
 []\T1/cmr/bx/n/12 Interface As-sets \T1/cmr/m/n/12 - HP Counter (both player an
 d even-tual pet), Weapon
  []
@@ -585,7 +585,7 @@ nc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
 sr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts
 /type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-sup
 er/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on GDD.pdf (17 pages, 138480 bytes).
+Output written on GDD.pdf (17 pages, 138584 bytes).
 PDF statistics:
  85 PDF objects out of 1000 (max. 8388607)
  56 compressed objects within 1 object stream
