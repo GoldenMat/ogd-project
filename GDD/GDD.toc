@@ -1,31 +1,28 @@
-\contentsline {section}{\numberline {1}Design History}{4}
-\contentsline {section}{\numberline {2}Vision Statement}{5}
-\contentsline {subsection}{\numberline {2.1}Game Logline}{5}
-\contentsline {subsection}{\numberline {2.2}Gameplay Synopsis}{5}
-\contentsline {section}{\numberline {3}Audience, Platform and Marketing}{6}
-\contentsline {subsection}{\numberline {3.1}Target Audience}{6}
-\contentsline {subsection}{\numberline {3.2}Platform}{6}
-\contentsline {subsection}{\numberline {3.3}Top Performers}{6}
-\contentsline {subsection}{\numberline {3.4}Feature Comparison}{6}
-\contentsline {section}{\numberline {4}Gameplay}{8}
-\contentsline {subsection}{\numberline {4.1}Overview}{8}
-\contentsline {subsection}{\numberline {4.2}Gameplay Description}{8}
-\contentsline {subsection}{\numberline {4.3}Controls}{9}
-\contentsline {subsubsection}{\numberline {4.3.1}Interfaces}{9}
-\contentsline {subsubsection}{\numberline {4.3.2}Rules}{9}
-\contentsline {subsubsection}{\numberline {4.3.3}Scoring/Winning Conditions}{10}
-\contentsline {subsection}{\numberline {4.4}Modes and other Features}{10}
-\contentsline {subsection}{\numberline {4.5}Levels}{11}
-\contentsline {subsection}{\numberline {4.6}Flowchart}{11}
-\contentsline {section}{\numberline {5}Game Characters}{13}
-\contentsline {subsubsection}{\numberline {5.0.1}Player Characters}{13}
-\contentsline {subsubsection}{\numberline {5.0.2}Non Player Characters}{13}
-\contentsline {section}{\numberline {6}Story}{15}
-\contentsline {subsection}{\numberline {6.1}Synopsis}{15}
-\contentsline {subsection}{\numberline {6.2}Complete Story}{15}
-\contentsline {subsection}{\numberline {6.3}Backstory}{15}
-\contentsline {subsection}{\numberline {6.4}Narrative Devices}{15}
-\contentsline {subsection}{\numberline {6.5}Subplots}{15}
-\contentsline {section}{\numberline {7}The Game World}{16}
-\contentsline {section}{\numberline {8}Media List}{17}
-\contentsline {section}{\numberline {9}Prototype Features List}{18}
+\contentsline {section}{\numberline {1}Design History}{3}
+\contentsline {section}{\numberline {2}Vision Statement}{4}
+\contentsline {subsection}{\numberline {2.1}Game Logline}{4}
+\contentsline {subsection}{\numberline {2.2}Gameplay Synopsis}{4}
+\contentsline {section}{\numberline {3}Audience, Platform and Marketing}{5}
+\contentsline {subsection}{\numberline {3.1}Target Audience}{5}
+\contentsline {subsection}{\numberline {3.2}Platform}{5}
+\contentsline {subsection}{\numberline {3.3}Top Performers}{5}
+\contentsline {subsection}{\numberline {3.4}Feature Comparison}{5}
+\contentsline {section}{\numberline {4}Gameplay}{7}
+\contentsline {subsection}{\numberline {4.1}Overview}{7}
+\contentsline {subsection}{\numberline {4.2}Gameplay Description}{7}
+\contentsline {subsection}{\numberline {4.3}Controls}{8}
+\contentsline {subsubsection}{\numberline {4.3.1}Interfaces}{8}
+\contentsline {subsubsection}{\numberline {4.3.2}Rules}{8}
+\contentsline {subsubsection}{\numberline {4.3.3}Scoring/Winning Conditions}{9}
+\contentsline {subsection}{\numberline {4.4}Modes and other Features}{9}
+\contentsline {subsection}{\numberline {4.5}Levels}{10}
+\contentsline {subsection}{\numberline {4.6}Flowchart}{10}
+\contentsline {section}{\numberline {5}Game Characters}{12}
+\contentsline {subsection}{\numberline {5.1}Player Characters}{12}
+\contentsline {subsection}{\numberline {5.2}Non Player Characters}{12}
+\contentsline {section}{\numberline {6}Story}{14}
+\contentsline {subsection}{\numberline {6.1}Synopsis}{14}
+\contentsline {subsection}{\numberline {6.2}Backstory}{14}
+\contentsline {section}{\numberline {7}The Game World}{15}
+\contentsline {section}{\numberline {8}Media List}{16}
+\contentsline {section}{\numberline {9}Background Music}{17}
