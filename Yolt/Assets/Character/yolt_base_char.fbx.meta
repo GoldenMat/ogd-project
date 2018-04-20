@@ -71,6 +71,7 @@ ModelImporter:
     100126: Thumb2_R
     100128: Thumb2_R_end
     100130: //RootNode
+    100132: Cube.004
     400000: Arm1_L
     400002: Arm1_R
     400004: Arm2_L
@@ -137,14 +138,18 @@ ModelImporter:
     400126: Thumb2_R
     400128: Thumb2_R_end
     400130: //RootNode
+    400132: Cube.004
     2300000: Cube.001
     2300002: Cube.002
+    2300004: Cube.004
     3300000: Cube.001
     3300002: Cube.002
+    3300004: Cube.004
     4300000: Cube.001
     4300002: Cube.002
     4300004: Cube.003
     4300006: Cube
+    4300008: Cube.004
     7400000: JogRight
     7400002: JogLeft
     7400004: JogBack
@@ -187,17 +192,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.004
-    second: {fileID: 2100000, guid: feb6fcf54eeb07043b7c14c42eb25622, type: 2}
+    second: {fileID: 2100000, guid: 1e5a8f9bac730544dbe1f24a1bf723ea, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.005
-    second: {fileID: 2100000, guid: 66d499388f702ed4bb993a9247fdab66, type: 2}
+    second: {fileID: 2100000, guid: 88105a3be554fd945828717bd871e0ae, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.006
-    second: {fileID: 2100000, guid: 2e195603c52b25040b81bce6666b36c7, type: 2}
+    second: {fileID: 2100000, guid: bf49609a0aa94a54bab9f86cfa1ab02b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -441,6 +446,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

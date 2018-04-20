@@ -30,10 +30,10 @@ public class TestController : MonoBehaviour {
 		mousePos = Input.mousePosition;
 
         p = c.ScreenToWorldPoint(new Vector2(mousePos.x, mousePos.y));
+		//Debug.Log("hit in "+ mousePos);
 		RaycastHit hit;
-		int layerMask = 1<<4;
-		if(Physics.Raycast(c.transform.position, p-c.transform.position, out hit, Mathf.Infinity, layerMask)){
-			Debug.Log("hit in "+ hit.point);
+		if(Physics.Raycast(c.transform.position, p-c.transform.position, out hit, Mathf.Infinity)){
+			
 			transform.forward = (hit.point - transform.position).normalized;
 		}
 		GetComponent<CharacterMeshController>().characterTransform = transform;
