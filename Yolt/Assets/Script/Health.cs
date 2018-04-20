@@ -2,33 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour {
+public class Health : MonoBehaviour
+{
 
-	public int _health;
+    public float _health;
 
-	// Use this for initialization
-	void Start () {
-		_health = 100;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
+        _health = 100;
+    }
 
-	void AreaDamage(){
-		_health -= 10;
+    // Update is called once per frame
+    void Update()
+    {
 
-		//Debug.Log ("Health: " + _health);
-	}
+    }
 
-	void AreaHeal(){
-		_health += 20;
-	}
+    public void AreaHeal(float heal)
+    {
+        _health += heal;
+    }
 
-    public void TakeDotDamage() { }
 
-    public void TakeDamage(int dam) {
+    public void TakeDamage(float dam)
+    {
         _health -= dam;
     }
 
