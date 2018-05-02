@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TestController : MonoBehaviour {
 
-	public float Speed;
+	public float speed;
 	Vector3 _speed;
 	public Camera camera;
 
-
+   
 	// Use this for initialization
 	void Start () {
 		_speed = Vector3.zero;
@@ -16,8 +16,31 @@ public class TestController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		_speed = new Vector3(Input.GetAxis("Horizontal"),0f, Input.GetAxis("Vertical"));
-		transform.position += _speed*Time.deltaTime * Speed;
+        
+        if (Input.GetKey(KeyCode.W))
+        {
+            _speed = (Vector3.forward * speed * Time.deltaTime);
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            _speed = (Vector3.left * speed * Time.deltaTime);
+            transform.Translate(Vector3.left * speed * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            _speed = (Vector3.back * speed * Time.deltaTime);
+            transform.Translate(Vector3.back * speed * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            _speed = (Vector3.right * speed * Time.deltaTime);
+            transform.Translate(Vector3.right * speed * Time.deltaTime);
+        }
+        
+      
+		transform.position += _speed*Time.deltaTime * speed;
 		Vector3 p = new Vector3();
         Camera  c = camera;
         Event   e = Event.current;
@@ -38,7 +61,7 @@ public class TestController : MonoBehaviour {
 		}
 		GetComponent<CharacterMeshController>().characterTransform = transform;
 		GetComponent<CharacterMeshController>().inputDirection = _speed;
-		GetComponent<CharacterMeshController>().speed = Speed;
+		GetComponent<CharacterMeshController>().speed = speed;
 		if(Input.GetKeyDown("space")){
 			GetComponent<CharacterMeshController>().Shoot();
 		}
