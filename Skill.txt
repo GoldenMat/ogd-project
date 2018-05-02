@@ -1,0 +1,21 @@
+ASSASSIN
+Cono (Rumble) (Damage nel tempo, quanto stai nel collider prendi danni)
+AreaDamage a cerchio (1 volta)
+
+RAGGIO LASER
+
+
+SUPPORT
+Slow a linea
+Heal ad area Burst dopo tot secondi
+
+
+Invincibilità uguale a heal 
+
+
+TANK
+Block davanti a te
+Stun (cono) + doppio danno (non puoi attaccare neanche)
+
+
+Taunt Raggruppa in un punto mouse (zarya ulti)
