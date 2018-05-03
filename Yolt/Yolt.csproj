@@ -194,9 +194,6 @@
     <Reference Include="UnityEngine.WindModule">
       <HintPath>D:/Programmi/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
     </Reference>
-    <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -263,6 +260,15 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assets/Photon/Photon Unity Networking/Editor/PhotonNetwork/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Photon3Unity3D">
+      <HintPath>Assets/Photon/Plugins/Photon3Unity3D.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>Assets/Photon/Plugins/WebSocket/websocket-sharp.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Advertisements">
       <HintPath>C:/Users/Mauri/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
@@ -283,15 +289,6 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/Mauri/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Assets/Photon/Photon Unity Networking/Editor/PhotonNetwork/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Photon3Unity3D">
-      <HintPath>Assets/Photon/Plugins/Photon3Unity3D.dll</HintPath>
-    </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>Assets/Photon/Plugins/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -441,19 +438,17 @@
     <Compile Include="Assets\Photon\PhotonChatApi\ChatUserStatus.cs" />
     <Compile Include="Assets\Photon\PhotonChatApi\IChatClientListener.cs" />
     <Compile Include="Assets\Photon\Plugins\WebSocket\WebSocket.cs" />
-    <Compile Include="Assets\Script\Assassin.cs" />
     <Compile Include="Assets\Script\BulletControler.cs" />
-    <Compile Include="Assets\Script\Cono.cs" />
+    <Compile Include="Assets\Script\ClassScripts\Assassin.cs" />
+    <Compile Include="Assets\Script\ClassScripts\Cono.cs" />
+    <Compile Include="Assets\Script\ClassScripts\Support.cs" />
+    <Compile Include="Assets\Script\ClassScripts\Tank.cs" />
     <Compile Include="Assets\Script\DebugDrawingExtension\DebugExtension.cs" />
     <Compile Include="Assets\Script\DebugDrawingExtension\Example\Example.cs" />
     <Compile Include="Assets\Script\EnemyManager.cs" />
     <Compile Include="Assets\Script\GunControler.cs" />
     <Compile Include="Assets\Script\Health.cs" />
     <Compile Include="Assets\Script\Movement.cs" />
-    <Compile Include="Assets\Script\MovimentoPlayer.cs" />
-    <Compile Include="Assets\Script\MovimentoProva.cs" />
-    <Compile Include="Assets\Script\Support.cs" />
-    <Compile Include="Assets\Script\Tank.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Photon\Photon Unity Networking\Demos\DemoBoxes\Resources\eurof_tt.txt" />
