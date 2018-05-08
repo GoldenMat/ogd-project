@@ -439,9 +439,12 @@
     <Compile Include="Assets\Photon\PhotonChatApi\IChatClientListener.cs" />
     <Compile Include="Assets\Photon\Plugins\WebSocket\WebSocket.cs" />
     <Compile Include="Assets\Script\BulletControler.cs" />
-    <Compile Include="Assets\Script\CircleMov.cs" />
     <Compile Include="Assets\Script\ClassScripts\Assassin.cs" />
+    <Compile Include="Assets\Script\ClassScripts\CircleMov.cs" />
     <Compile Include="Assets\Script\ClassScripts\Cono.cs" />
+    <Compile Include="Assets\Script\ClassScripts\Redemption.cs" />
+    <Compile Include="Assets\Script\ClassScripts\SingleDamage.cs" />
+    <Compile Include="Assets\Script\ClassScripts\Slow.cs" />
     <Compile Include="Assets\Script\ClassScripts\Support.cs" />
     <Compile Include="Assets\Script\ClassScripts\Tank.cs" />
     <Compile Include="Assets\Script\DebugDrawingExtension\DebugExtension.cs" />
