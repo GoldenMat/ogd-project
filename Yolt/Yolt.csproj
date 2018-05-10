@@ -445,17 +445,19 @@
     <Compile Include="Assets\Script\ClassScripts\Redemption.cs" />
     <Compile Include="Assets\Script\ClassScripts\SingleDamage.cs" />
     <Compile Include="Assets\Script\ClassScripts\Slow.cs" />
+    <Compile Include="Assets\Script\ClassScripts\Stun.cs" />
     <Compile Include="Assets\Script\ClassScripts\Support.cs" />
     <Compile Include="Assets\Script\ClassScripts\Tank.cs" />
     <Compile Include="Assets\Script\DebugDrawingExtension\DebugExtension.cs" />
     <Compile Include="Assets\Script\DebugDrawingExtension\Example\Example.cs" />
     <Compile Include="Assets\Script\EnemyManager.cs" />
+    <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\GunControler.cs" />
     <Compile Include="Assets\Script\Health.cs" />
     <Compile Include="Assets\Script\Lùth.cs" />
     <Compile Include="Assets\Script\Movement.cs" />
     <Compile Include="Assets\Script\MovementGhost.cs" />
-    <Compile Include="Assets\Script\PlayerManager.cs" />
+    <Compile Include="Assets\Script\PlayerController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Photon\Photon Unity Networking\Demos\DemoBoxes\Resources\eurof_tt.txt" />

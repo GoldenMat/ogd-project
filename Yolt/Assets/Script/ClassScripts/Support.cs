@@ -124,7 +124,7 @@ public class Support : MonoBehaviour
             _taricColl.enabled = true;
 
             coroutineCasting1 = Instant(_taricColl, visibileTaric);
-            StartCoroutine(coroutineR);
+            StartCoroutine(coroutineCasting1);
         }
 
         if (visibileTaric)
@@ -146,9 +146,11 @@ public class Support : MonoBehaviour
 
     public IEnumerator Instant(Collider cast, bool vis)
     {
+        
         yield return new WaitForSeconds(0.5f);
         cast.enabled = false;
         vis = false;
+        
 
     }
 
@@ -157,7 +159,6 @@ public class Support : MonoBehaviour
         yield return new WaitForSeconds(dur);
         cast.enabled = true;
         vis = true;
-
     }
 
 

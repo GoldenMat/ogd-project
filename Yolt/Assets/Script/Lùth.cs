@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Lùth : MonoBehaviour {
 
+    public float _lùth; 
+
 	// Use this for initialization
 	void Start () {
 		
@@ -19,7 +21,7 @@ public class Lùth : MonoBehaviour {
 
         if (coll.gameObject.tag == "Ghost")
         {
-            coll.gameObject.GetComponent<PlayerManager>().IncreaseLùth(1);
+            coll.gameObject.GetComponent<PlayerController>().IncreaseLùth(_lùth);
 
             Destroy(gameObject);
         }
