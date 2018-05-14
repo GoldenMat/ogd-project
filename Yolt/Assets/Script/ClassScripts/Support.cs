@@ -38,7 +38,7 @@ public class Support : MonoBehaviour
                 Collider[] Arround = Physics.OverlapSphere(bas, 2.5f);
                 foreach (Collider intoExp in Arround)
                 {
-                    if (intoExp.transform.tag == "Enemy")
+                    if (intoExp.transform.tag == "Enemy") // non dovrebbe essere il tag del giocatore?
                     {
                         intoExp.GetComponent<Health>().AreaHeal(10);
                     }

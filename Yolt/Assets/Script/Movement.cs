@@ -51,7 +51,7 @@ public class Movement : MonoBehaviour
         //per evitare movimenti indesiderati, prendo solo il WASD
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.World);
         }
         if (Input.GetKey(KeyCode.A))
         {
