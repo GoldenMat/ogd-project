@@ -21,16 +21,16 @@ public class Cono : MonoBehaviour
 
     void OnTriggerStay(Collider coll)
     {
-        Debug.Log("t: " + t);
+        //Debug.Log("t: " + t);
         t += Time.deltaTime;
 
         if (coll.gameObject.tag == "Enemy")
         {
-            Debug.Log("Sono dentro enemy");
+            //Debug.Log("Sono dentro enemy");
             if (t > 0.5)
             {
                 coll.gameObject.GetComponent<Health>().TakeDamage(2);
-                Debug.Log("Sto facendo 2 danni");
+                //Debug.Log("Sto facendo 2 danni");
                 t = 0;
             }
         }
