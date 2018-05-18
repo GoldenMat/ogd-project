@@ -20,23 +20,27 @@ public class TestController : MonoBehaviour {
         if (Input.GetKey(KeyCode.W))
         {
             _speed = (Vector3.forward * speed * Time.deltaTime);
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.World);
         }
         if (Input.GetKey(KeyCode.A))
         {
             _speed = (Vector3.left * speed * Time.deltaTime);
-            transform.Translate(Vector3.left * speed * Time.deltaTime);
+            transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
         }
         if (Input.GetKey(KeyCode.S))
         {
             _speed = (Vector3.back * speed * Time.deltaTime);
-            transform.Translate(Vector3.back * speed * Time.deltaTime);
+            transform.Translate(Vector3.back * speed * Time.deltaTime, Space.World);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
             _speed = (Vector3.right * speed * Time.deltaTime);
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
+            transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
+        }
+        if (Input.GetKey(KeyCode.None))
+        {
+            GetComponent<CharacterMeshController>().Stop();
         }
         
       

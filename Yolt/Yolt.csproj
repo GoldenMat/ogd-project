@@ -238,17 +238,21 @@
     <Compile Include="Assets\Character\TestController.cs" />
     <Compile Include="Assets\Script\Assassin.cs" />
     <Compile Include="Assets\Script\BulletControler.cs" />
+    <Compile Include="Assets\Script\CoinSystem.cs" />
     <Compile Include="Assets\Script\Cono.cs" />
     <Compile Include="Assets\Script\DebugDrawingExtension\DebugExtension.cs" />
     <Compile Include="Assets\Script\DebugDrawingExtension\Example\Example.cs" />
+    <Compile Include="Assets\Script\DecisionTree.cs" />
+    <Compile Include="Assets\Script\EnemyController.cs" />
     <Compile Include="Assets\Script\GunControler.cs" />
     <Compile Include="Assets\Script\Health.cs" />
     <Compile Include="Assets\Script\Movement.cs" />
-    <Compile Include="Assets\Script\MovimentoPlayer.cs" />
-    <Compile Include="Assets\Script\MovimentoProva.cs" />
+    <Compile Include="Assets\Script\MovimentoRandomProvaIA.cs" />
     <Compile Include="Assets\Script\Support.cs" />
+    <Compile Include="Assets\Script\UnlockDoorsWithCoins.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Sci-fi_platforms\Sci-fi_platforms.txt" />
     <None Include="Assets\Script\DebugDrawingExtension\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

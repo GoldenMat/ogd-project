@@ -10,8 +10,9 @@ public class CharacterMeshController : MonoBehaviour {
 	public float blendFactor = 0.2f;
 	public float CHAR_DEFAULT_SPEED = 2f;
 	Vector3 blend_vec;
+    Vector3 stopVector;
 
-	Animator myAnimator;
+    Animator myAnimator;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +22,7 @@ public class CharacterMeshController : MonoBehaviour {
 		myAnimator = GetComponent<Animator>();
 		Debug.Assert(myAnimator!=null);
 		blend_vec = Vector3.zero;
+        
 	}
 	
 	// Update is called once per frame
@@ -38,4 +40,8 @@ public class CharacterMeshController : MonoBehaviour {
 	public void Shoot(){
 		myAnimator.SetTrigger("shoot");
 	}
+    public void Stop()
+    {
+     
+    }
 }

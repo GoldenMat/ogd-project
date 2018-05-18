@@ -51,26 +51,28 @@ public class Movement : MonoBehaviour
         //per evitare movimenti indesiderati, prendo solo il WASD
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.World);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * speed * Time.deltaTime);
+            transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(Vector3.back * speed * Time.deltaTime);
+            transform.Translate(Vector3.back * speed * Time.deltaTime, Space.World);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
+            transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
         }
         // Quando non tocco tasto, l'animazione si ferma. Da rividere
+     
         if (Input.GetKey(KeyCode.None))
         {
-            
+           GetComponent<CharacterMeshController>().Stop();
         }
+        
 
 
         /* //prove varie
