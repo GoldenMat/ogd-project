@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject player;
     public GameObject ghost;
+
+
     public GameObject assassin;
     public GameObject tank;
     public GameObject support;
@@ -112,6 +114,13 @@ public class PlayerController : MonoBehaviour {
                     Debug.Log("Sono un player");
                     actual.SetActive(false);
                     player.SetActive(true);
+
+
+                    //UI DEL PLAYER
+
+
+
+
                     /*player.SetActive(true);
                     ghost.SetActive(false);
                     assassin.SetActive(false);
@@ -124,6 +133,12 @@ public class PlayerController : MonoBehaviour {
                     Debug.Log("Sono un ghost");
                     actual.SetActive(false);
                     ghost.SetActive(true);
+
+                    
+
+                    //UI DEL GHOST
+
+
                     /*player.SetActive(false);
                     ghost.SetActive(true);
                     assassin.SetActive(false);
@@ -138,6 +153,12 @@ public class PlayerController : MonoBehaviour {
                     actual.SetActive(false);
                     assassin.SetActive(true);
                     Debug.Log("Sono un assassino");
+
+
+                    //UI DELLA CLASSE
+
+
+
                     /*player.SetActive(false);
                     ghost.SetActive(false);
                     assassin.SetActive(true);

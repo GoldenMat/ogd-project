@@ -466,7 +466,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 311745723}
-  m_Father: {fileID: 880041420}
+  m_Father: {fileID: 1473113936}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -516,6 +516,17 @@ MonoBehaviour:
       - m_Target: {fileID: 68704578}
         m_MethodName: changeState
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1473113935}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -684,7 +695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 744183679}
-  transfCanvas: {fileID: 880041419}
+  transfPanel: {fileID: 1473113935}
   _asbtn: {fileID: 1030957777}
   _tankbtn: {fileID: 68704575}
   _supbtn: {fileID: 1198800997}
@@ -1344,7 +1355,7 @@ MonoBehaviour:
   _sfera: {fileID: 180518393}
   _cono: {fileID: 975314623}
   _laserone: {fileID: 1762452129}
-  _GOpc: {fileID: 0}
+  _GOpc: {fileID: 162943191}
 --- !u!23 &633512173
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2237,9 +2248,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1030957776}
-  - {fileID: 68704574}
-  - {fileID: 1198800996}
+  - {fileID: 1473113936}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2601,12 +2610,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1030957775}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1482755833}
-  m_Father: {fileID: 880041420}
+  m_Father: {fileID: 1473113936}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2656,6 +2665,17 @@ MonoBehaviour:
       - m_Target: {fileID: 1030957780}
         m_MethodName: changeState
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1473113935}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3214,7 +3234,7 @@ MonoBehaviour:
   _shield: {fileID: 7162781}
   _cono: {fileID: 996574414}
   _pull: {fileID: 0}
-  _GOpc: {fileID: 0}
+  _GOpc: {fileID: 162943191}
   _CastingMaterialShield: {fileID: 2100000, guid: b8252be4b785f9044ae1d47a58735350,
     type: 2}
   _SpellMaterialShield: {fileID: 2100000, guid: f04066de2de360c408c41c33d9bb0639,
@@ -3417,7 +3437,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2058670645}
-  m_Father: {fileID: 880041420}
+  m_Father: {fileID: 1473113936}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3467,6 +3487,17 @@ MonoBehaviour:
       - m_Target: {fileID: 1198801000}
         m_MethodName: changeState
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1473113935}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3875,7 +3906,6 @@ GameObject:
   - component: {fileID: 1335959923}
   - component: {fileID: 1335959922}
   - component: {fileID: 1335959921}
-  - component: {fileID: 1335959920}
   - component: {fileID: 1335959919}
   m_Layer: 0
   m_Name: Ghost
@@ -3912,29 +3942,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1335959920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1335959917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78a9f9e478635e44190d95be9b1871e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  transfCanvas: {fileID: 0}
-  _asbtn: {fileID: 0}
-  _tankbtn: {fileID: 0}
-  _supbtn: {fileID: 0}
-  player: {fileID: 0}
-  ghost: {fileID: 0}
-  assassin: {fileID: 0}
-  tank: {fileID: 0}
-  support: {fileID: 0}
-  _Slots: 
-  state: 0
 --- !u!114 &1335959921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4237,7 +4244,7 @@ MonoBehaviour:
   _slow: {fileID: 1252625122}
   _redemption: {fileID: 1394415821}
   _taric: {fileID: 73837838}
-  _GOpc: {fileID: 0}
+  _GOpc: {fileID: 162943191}
   _TransformPsW: {fileID: 963604085}
 --- !u!114 &1468355874
 MonoBehaviour:
@@ -4305,6 +4312,77 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1468355871}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1473113935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1473113936}
+  - component: {fileID: 1473113938}
+  - component: {fileID: 1473113937}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1473113936
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1473113935}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1030957776}
+  - {fileID: 68704574}
+  - {fileID: 1198800996}
+  m_Father: {fileID: 880041420}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1473113937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1473113935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1473113938
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1473113935}
 --- !u!1 &1482755832
 GameObject:
   m_ObjectHideFlags: 0
@@ -5289,7 +5367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  transfCanvas: {fileID: 0}
+  transfPanel: {fileID: 0}
   _asbtn: {fileID: 0}
   _tankbtn: {fileID: 0}
   _supbtn: {fileID: 0}
@@ -5487,7 +5565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 744183679}
-  transfCanvas: {fileID: 880041419}
+  transfPanel: {fileID: 0}
   _asbtn: {fileID: 0}
   _tankbtn: {fileID: 0}
   _supbtn: {fileID: 0}
