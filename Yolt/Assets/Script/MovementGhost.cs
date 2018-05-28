@@ -5,38 +5,31 @@ using UnityEngine;
 public class MovementGhost : MonoBehaviour
 {
     public float speed;
-    public float smoothedSpeed;
+    private float smoothedSpeed;
     private float m_horizontal, m_vertical;
     private PhotonView myPhotonView;
+    private Animator anim;
 
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
+        anim = GetComponent<Animator>();
+    }
 
-        // ---------------
 
-        //per evitare movimenti indesiderati, prendo solo il WASD ---> replace with switch case (?)
-        /*
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(vec_up * speed * Time.deltaTime * Input.GetAxis("Vertical"), Space.World);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(vec_left * speed * Time.deltaTime, Space.World);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(vec_down * speed * Time.deltaTime, Space.World);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(vec_rigth * speed * Time.deltaTime, Space.World);
-        }
-        */
+    private void Update()
+    {
         m_horizontal = Input.GetAxis("Horizontal");
         m_vertical = Input.GetAxis("Vertical");
+        if(m_horizontal == 0 && m_vertical == 0)
+        {
+            anim.SetFloat("speed_y", 0f);
+            anim.SetFloat("speed_x", 0f);
+        }
+        else
+        {
+            anim.SetFloat("speed_y", m_vertical);
+            anim.SetFloat("speed_x", m_horizontal);
+        }
 
         if (m_vertical != 0)
         {
@@ -59,4 +52,3 @@ public class MovementGhost : MonoBehaviour
         }
     }
 }
-

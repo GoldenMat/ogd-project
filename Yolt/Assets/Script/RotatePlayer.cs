@@ -6,9 +6,9 @@ public class RotatePlayer : MonoBehaviour
 {
     private Ray cameraRay;
     private Camera myCamera;
-    private float rayLength;
-    private Vector3 PointToLook { get; set; }
-    public GameObject groundPlane;
+    public float rayLength;
+    public Vector3 PointToLook { get; set; }
+    private Plane groundPlane;
 
     #region MonoBehaviour Callbakcs
     private void Start()
@@ -19,9 +19,10 @@ public class RotatePlayer : MonoBehaviour
 
     private void Update()
     {
+        groundPlane = new Plane(Vector3.up, transform.position);
         cameraRay = myCamera.ScreenPointToRay(Input.mousePosition);
 
-        if (groundPlane.GetComponent<Plane>().Raycast(cameraRay, out rayLength))
+        if (groundPlane.Raycast(cameraRay, out rayLength))
         {
             PointToLook = cameraRay.GetPoint(rayLength);
             Debug.DrawLine(cameraRay.origin, PointToLook, Color.red);

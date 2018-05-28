@@ -4636,6 +4636,11 @@ MonoBehaviour:
   readyMaterial: {fileID: 2100000, guid: 56d6016be540dec42babaaca05207f7d, type: 2}
   playerModel: {fileID: 1777541828843248, guid: 43a76ca374b6eff45bd8444a2e4b33a2,
     type: 2}
+  materials:
+  - {fileID: 2100000, guid: a0e0a1221000ad346b60f0a1103a3b7e, type: 2}
+  - {fileID: 2100000, guid: f6b76770c8d040446b7291a0110291f2, type: 2}
+  - {fileID: 2100000, guid: 4a50a0a6801ca7f4197cb03b423497bc, type: 2}
+  - {fileID: 2100000, guid: 42f50aa19f6a5f54e8a5d3e9cae60cdd, type: 2}
 --- !u!114 &1964709279
 MonoBehaviour:
   m_ObjectHideFlags: 0

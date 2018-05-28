@@ -10,8 +10,10 @@ public class RoomManager : Photon.PunBehaviour
     public GameObject[] station;
     public Material unReadyMaterial, readyMaterial;
     public GameObject playerModel;
+    public Material[] materials;
     private bool amIready = false;
     private int readyPlayer, myIndex;
+
 
     #region User Methods
     public void ExitRoom()
@@ -52,10 +54,18 @@ public class RoomManager : Photon.PunBehaviour
             {
                 myIndex = index;
             }
-            Instantiate(playerModel,
-                        station[index].transform.position + (Vector3.up * 0.5f),
-                        new Quaternion(0f, 90f, 0f, 0f),
-                        station[index].transform);
+            GameObject go = Instantiate(playerModel,
+                            station[index].transform.position + (Vector3.up * 0.5f),
+                            new Quaternion(0f, 90f, 0f, 0f),
+                            station[index].transform); 
+            go.GetComponent<MovementGhost>().enabled = false;
+            go.GetComponent<RotatePlayer>().enabled = false;
+            Material[] tmpBody = go.GetComponentInChildren<SkinnedMeshRenderer>().materials;
+            tmpBody[3] = materials[index];
+            go.GetComponentInChildren<SkinnedMeshRenderer>().materials = tmpBody;
+            Material[] tmpHip = go.transform.Find("Cube.003").GetComponent<SkinnedMeshRenderer>().materials;
+            tmpHip[0] = materials[index];
+            go.transform.Find("Cube.003").GetComponent<SkinnedMeshRenderer>().materials = tmpHip;
             station[index].GetComponentInChildren<Text>().text = player.NickName;
             index++;
         }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -671,6 +671,95 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &1867306374
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4641433313043948, guid: 43a76ca374b6eff45bd8444a2e4b33a2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.4726055
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641433313043948, guid: 43a76ca374b6eff45bd8444a2e4b33a2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.3187711
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641433313043948, guid: 43a76ca374b6eff45bd8444a2e4b33a2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1.4133139
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641433313043948, guid: 43a76ca374b6eff45bd8444a2e4b33a2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641433313043948, guid: 43a76ca374b6eff45bd8444a2e4b33a2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641433313043948, guid: 43a76ca374b6eff45bd8444a2e4b33a2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641433313043948, guid: 43a76ca374b6eff45bd8444a2e4b33a2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641433313043948, guid: 43a76ca374b6eff45bd8444a2e4b33a2, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114169070523054892, guid: 43a76ca374b6eff45bd8444a2e4b33a2,
+        type: 2}
+      propertyPath: viewIdField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114169070523054892, guid: 43a76ca374b6eff45bd8444a2e4b33a2,
+        type: 2}
+      propertyPath: instantiationId
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 43a76ca374b6eff45bd8444a2e4b33a2, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1867306375 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1657536211569486, guid: 43a76ca374b6eff45bd8444a2e4b33a2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1867306374}
+--- !u!114 &1867306376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1867306375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870f5e584ae8f444d9bb26b6a4034aa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolName: Player Model (Clone)
+  dontDestroy: 0
+  prepareAtStart: 1
+  autoCull: 1
+  allocationBlockSize: 1
+  minPoolSize: 1
+  maxPoolSize: 1
+  cullingSpeed: 1
+  OnMaxPoolSize: 0
+  prefab: {fileID: 1323629753406534, guid: 1199de3704f5769459d32351d965f6ff, type: 2}
+--- !u!114 &1867306377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1867306375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc43126ca1188e4ea462d9c768d8d24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1888470321 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1657536211569486, guid: 2413b0705b834554ba57cb1d59e5c7a7,

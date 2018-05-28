@@ -43,4 +43,5 @@ MonoBehaviour:
   - RequestForPickupTimes
   - TaggedPlayer
   - GetReady
+  - Fire
   DisableAutoOpenWizard: 1
