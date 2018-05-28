@@ -194,14 +194,62 @@
     <Reference Include="UnityEngine.WindModule">
       <HintPath>D:/Programmi/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Networking">
+      <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Timeline">
+      <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Timeline">
+      <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TreeEditor">
+      <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIAutomation">
+      <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UIAutomation">
+      <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/Editor/UnityEditor.UIAutomation.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.GoogleAudioSpatializer">
+      <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GoogleAudioSpatializer">
+      <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.HoloLens">
       <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.SpatialTracking">
+      <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.VR">
+      <HintPath>D:/Programmi/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Graphs">
       <HintPath>D:/Programmi/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -398,7 +446,6 @@
     <Compile Include="Assets\Photon\PhotonChatApi\ChatUserStatus.cs" />
     <Compile Include="Assets\Photon\PhotonChatApi\IChatClientListener.cs" />
     <Compile Include="Assets\Photon\Plugins\WebSocket\WebSocket.cs" />
-    <Compile Include="Assets\Script\Assassin.cs" />
     <Compile Include="Assets\Script\BulletControler.cs" />
     <Compile Include="Assets\Script\ClassScripts\Assassin.cs" />
     <Compile Include="Assets\Script\ClassScripts\CircleMov.cs" />
@@ -410,7 +457,6 @@
     <Compile Include="Assets\Script\ClassScripts\Support.cs" />
     <Compile Include="Assets\Script\ClassScripts\Tank.cs" />
     <Compile Include="Assets\Script\CoinSystem.cs" />
-    <Compile Include="Assets\Script\Cono.cs" />
     <Compile Include="Assets\Script\DebugDrawingExtension\DebugExtension.cs" />
     <Compile Include="Assets\Script\DebugDrawingExtension\Example\Example.cs" />
     <Compile Include="Assets\Script\DecisionTree.cs" />
@@ -420,12 +466,10 @@
     <Compile Include="Assets\Script\GunControler.cs" />
     <Compile Include="Assets\Script\Health.cs" />
     <Compile Include="Assets\Script\Lùth.cs" />
-    <Compile Include="Assets\Script\Movement.cs" />
     <Compile Include="Assets\Script\MovementGhost.cs" />
     <Compile Include="Assets\Script\MovimentoRandomProvaIA.cs" />
     <Compile Include="Assets\Script\PlayerController.cs" />
     <Compile Include="Assets\Script\RotatePlayer.cs" />
-    <Compile Include="Assets\Script\Support.cs" />
     <Compile Include="Assets\Script\UnlockDoorsWithCoins.cs" />
     <Compile Include="Assets\Scripts\Connect Scripts\EnumPanel.cs" />
     <Compile Include="Assets\Scripts\Connect Scripts\LobbyManager.cs" />
