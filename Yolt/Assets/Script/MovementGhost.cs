@@ -5,57 +5,50 @@ using UnityEngine;
 public class MovementGhost : MonoBehaviour
 {
     public float speed;
-    private Camera mainCamera;
-    private Vector3 PointToLook;
+    private float smoothedSpeed;
+    private float m_horizontal, m_vertical;
+    private PhotonView myPhotonView;
+    private Animator anim;
 
-    // Use this for initialization
-    void Start()
+    private void Start()
     {
-        
-        mainCamera = FindObjectOfType<Camera>();
-        speed = 10;
+        anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
-        
-        Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
-        Plane groundplane = new Plane(Vector3.up, Vector3.zero);
-        float rayLength;
-
-        if (groundplane.Raycast(cameraRay, out rayLength))
+        m_horizontal = Input.GetAxis("Horizontal");
+        m_vertical = Input.GetAxis("Vertical");
+        if(m_horizontal == 0 && m_vertical == 0)
         {
-            PointToLook = cameraRay.GetPoint(rayLength);
-            Debug.DrawLine(cameraRay.origin, PointToLook, Color.red);
-            transform.LookAt(new Vector3(PointToLook.x, transform.position.y, PointToLook.z));
-
+            anim.SetFloat("speed_y", 0f);
+            anim.SetFloat("speed_x", 0f);
         }
-        //per evitare movimenti indesiderati, prendo solo il WASD
-        if (Input.GetKey(KeyCode.W))
+        else
         {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.World);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(Vector3.back * speed * Time.deltaTime, Space.World);
+            anim.SetFloat("speed_y", m_vertical);
+            anim.SetFloat("speed_x", m_horizontal);
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (m_vertical != 0)
         {
-            transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
-        }
+            smoothedSpeed = speed;
+            if (m_horizontal != 0)
+            {
+                smoothedSpeed = speed * 0.7f;
+            }
+            transform.position = Vector3.Lerp(transform.position, transform.position + new Vector3(m_vertical, 0f, m_vertical), smoothedSpeed * Time.deltaTime);
 
+        }
+        if (m_horizontal != 0)
+        {
+            smoothedSpeed = speed;
+            if (m_vertical != 0)
+            {
+                smoothedSpeed = speed * 0.7f;
+            }
+            transform.position = Vector3.Lerp(transform.position, transform.position + new Vector3(m_horizontal, 0f, -m_horizontal), smoothedSpeed * Time.deltaTime);
+        }
     }
-
-    public Vector3 Pointtolook()
-    {
-        return PointToLook;
-    }
-
 }
-

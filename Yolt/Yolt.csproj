@@ -466,6 +466,17 @@
     <Compile Include="Assets\Script\Movement.cs" />
     <Compile Include="Assets\Script\MovementGhost.cs" />
     <Compile Include="Assets\Script\PlayerController.cs" />
+    <Compile Include="Assets\Script\RotatePlayer.cs" />
+    <Compile Include="Assets\Scripts\Connect Scripts\EnumPanel.cs" />
+    <Compile Include="Assets\Scripts\Connect Scripts\LobbyManager.cs" />
+    <Compile Include="Assets\Scripts\Connect Scripts\RoomManager.cs" />
+    <Compile Include="Assets\Scripts\Connect Scripts\ServerAccess.cs" />
+    <Compile Include="Assets\Scripts\Connect Scripts\UIManager.cs" />
+    <Compile Include="Assets\Scripts\Generic\DDOL.cs" />
+    <Compile Include="Assets\Scripts\IsometricCamera.cs" />
+    <Compile Include="Assets\Scripts\PoolSystem.cs" />
+    <Compile Include="Assets\Scripts\PoolSystemPun.cs" />
+    <Compile Include="Assets\Scripts\SpawnPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddEffect.shader" />

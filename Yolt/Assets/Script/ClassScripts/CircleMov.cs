@@ -8,24 +8,28 @@ public class CircleMov : MonoBehaviour {
     private Transform _playerTransform;
 
     public GameObject _player;
-
-    private float m_horizontal;
     public float speed;
+    private Ray cameraRay;
+    private Plane groundPlane;
+    private float rayLength;
+    public Vector3 PointToLook { get; set; }
+    private Vector3 destination;
 
-
-	// Use this for initialization
-	void Start () {
-        speed = 150;
+	private void Start ()
+    {
         _playerTransform = _player.GetComponent<Transform>();
-		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-
-        m_horizontal = Math.Sign(Input.GetAxis("Horizontal"));
-        
-        transform.RotateAround(_playerTransform.position, Vector3.up, speed * Time.deltaTime * m_horizontal);
-		
-	}
+	private void Update ()
+    {
+        groundPlane = new Plane(Vector3.up, transform.position);
+        cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (groundPlane.Raycast(cameraRay, out rayLength))
+        {
+            PointToLook = cameraRay.GetPoint(rayLength);
+        }
+        transform.LookAt(new Vector3(PointToLook.x, transform.position.y, PointToLook.z));
+        destination = _playerTransform.position + (new Vector3(PointToLook.x, 0f, PointToLook.z) - _playerTransform.position).normalized;
+        transform.position = Vector3.Lerp(transform.position, destination, speed * Time.deltaTime);
+    }
 }
