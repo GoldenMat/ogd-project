@@ -10,10 +10,20 @@ public class Assassin : MonoBehaviour
     private IEnumerator coroutineW;
     private IEnumerator coroutineR;
 
+    private IEnumerator coroutineCDQ;
+    private IEnumerator coroutineCDW;
+    private IEnumerator coroutineCDR;
+
     public GameObject _sfera;
     public GameObject _cono;
     public GameObject _laserone;
+
+    public GameObject _GOpc;
+    private PlayerController _pc;
     
+    private ParticleSystem _psQ;
+    private ParticleSystem _psW;
+
 
     private MeshRenderer _sferaMesh;
     private MeshRenderer _conoMesh;
@@ -28,11 +38,27 @@ public class Assassin : MonoBehaviour
 
     private Vector3 bas;
 
+    private bool usableQ;
+    private bool usableW;
+    private bool usableR;
+    private bool enoughluth;
+
+    private float Qcost;
+    private float Wcost;
+    private float maxluth;
+
 
     // Use this for initialization
     void Start()
     {
         bas = new Vector3(0, 0, 0);
+
+        Qcost = 20;
+        Wcost = 20;
+        maxluth = 100;
+
+        enoughluth = true;
+        _pc = _GOpc.GetComponent<PlayerController>();
 
 
         _sferaMesh = _sfera.GetComponent<MeshRenderer>();
@@ -43,12 +69,20 @@ public class Assassin : MonoBehaviour
         _laseroneColl = _laserone.GetComponent<CapsuleCollider>();
         _sferaColl = _sfera.GetComponent<SphereCollider>();
 
+        _psQ = _sfera.GetComponentInChildren<ParticleSystem>();
+        _psW = _cono.GetComponentInChildren<ParticleSystem>();
+
+
         _sferaMesh.enabled = false;
         _conoMesh.enabled = false;
         _laseroneMesh.enabled = false;
 
         
         _materialSfera = _sfera.GetComponent<Renderer>().material;
+
+        usableQ = true;
+        usableW = true;
+        usableR = true;
     }
 
     // Update is called once per frame
@@ -74,6 +108,12 @@ public class Assassin : MonoBehaviour
 
         }
 
+        if (_pc.getLuth() < 20)
+        {
+            enoughluth = false;
+        }
+        else { enoughluth = true; }
+
 
 
         //if (Input.GetMouseButtonDown(0))
@@ -86,31 +126,33 @@ public class Assassin : MonoBehaviour
 
         }
 
+        
         if (Input.GetKeyUp(KeyCode.Q))
         {
-            /*//animation con durata, o particellare
-            _materialSfera.color = Color.red;
+                //animation con durata, o particellare
 
-            Collider[] Arround = Physics.OverlapSphere(bas, 3f);
-            foreach (Collider intoExp in Arround)
+                
+                _sferaMesh.enabled = false;
+
+            if (usableQ && enoughluth)
             {
-                if (intoExp.transform.tag == "Enemy")
-                {
-                    intoExp.GetComponent<Health>().TakeDamage(10);
-                }
+                //faccio partire il particle system dall'inizio
+                _psQ.Clear();
+                _psQ.Simulate(0.0f, true, true);
+                _psQ.Play();
+
+                GetComponent<PlayerController>().DecreaseLùth(Qcost);
+
+
+                usableQ = false;
+                _sferaColl.enabled = true;
+
+                coroutineQ = InstantDamage(_sferaColl);
+                StartCoroutine(coroutineQ);
+
+                coroutineCDQ = CooldownQ(1.0f);
+                StartCoroutine(coroutineCDQ);
             }
-
-            coroutineQ = SferaDamageDuration();
-            StartCoroutine(coroutineQ);
-            */
-
-            _sferaMesh.enabled = false;
-
-            _sferaColl.enabled = true;
-
-            coroutineQ = InstantDamage(_sferaColl);
-            StartCoroutine(coroutineQ);
-
         }
 
 
@@ -123,17 +165,27 @@ public class Assassin : MonoBehaviour
             _conoMesh.enabled = true;
         }
 
-        if (Input.GetKeyUp(KeyCode.W))
-        {
+       
+            if (Input.GetKeyUp(KeyCode.W))
+            {
+                _psW.Play();
+                //quando il mouse viene alzato disabilita la mesh renderer e abilita il collider
+                _conoMesh.enabled = false;
 
-            //quando il mouse viene alzato disabilita la mesh renderer e abilita il collider
-            _conoMesh.enabled = false;
+            if (usableW && enoughluth)
+            {
+                usableW = false;
+                _conoColl.enabled = true;
 
-            _conoColl.enabled = true;
+                GetComponent<PlayerController>().DecreaseLùth(Wcost);
 
-            coroutineW = FieldDamageDuration();
-            StartCoroutine(coroutineW);
+                coroutineW = FieldDamageDuration();
+                StartCoroutine(coroutineW);
 
+                coroutineCDW = CooldownW(1.0f);
+                StartCoroutine(coroutineCDW);
+
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -141,22 +193,48 @@ public class Assassin : MonoBehaviour
             _laseroneMesh.enabled = true;
         }
 
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            _laseroneMesh.enabled = false;
+        
+            if (Input.GetKeyUp(KeyCode.R))
+            {
+            
+                _laseroneMesh.enabled = false;
 
-            _laseroneColl.enabled = true;
+            if (usableR)
+            {
 
-            coroutineR = InstantDamage(_laseroneColl);
-            StartCoroutine(coroutineR);
+                GetComponent<PlayerController>().DecreaseLùth(maxluth);
+
+                _laseroneColl.enabled = true;
+
+                coroutineR = InstantDamage(_laseroneColl);
+                StartCoroutine(coroutineR);
+
+               
+            }
         }
 
 
     }
 
+    private IEnumerator CooldownQ(float dur) {
+        yield return new WaitForSeconds(dur);
+        usableQ = true;
+
+    }
+
+    private IEnumerator CooldownW(float dur)
+    {
+        yield return new WaitForSeconds(dur);
+        usableW = true;
+
+    }
+
+
+
     public IEnumerator FieldDamageDuration(){
         yield return new WaitForSeconds(5.0f);
         _conoColl.enabled = false;
+        _psW.Stop();
 
     }
     

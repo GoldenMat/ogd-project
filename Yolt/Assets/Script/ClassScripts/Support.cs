@@ -11,9 +11,19 @@ public class Support : MonoBehaviour
     private IEnumerator coroutineCasting;
     private IEnumerator coroutineCasting1;
 
+    private IEnumerator coroutineCDQ;
+    private IEnumerator coroutineCDW;
+    private IEnumerator coroutineCDR;
+
     public GameObject _slow;
     public GameObject _redemption;
     public GameObject _taric;
+
+    public GameObject _GOpc;
+    private PlayerController _pc;
+
+    public GameObject _TransformPsW;
+    private ParticleSystem _psW;
 
 
     private MeshRenderer _slowMesh;
@@ -24,19 +34,33 @@ public class Support : MonoBehaviour
     private SphereCollider _taricColl;
     private CapsuleCollider _slowColl;
 
-    private bool visibileRedemption = false;
+    //private bool visibileRedemption = false;
     private bool visibileTaric = false;
 
     private Material _materialslow;
 
     private Vector3 bas;
 
+    private bool usableQ;
+    private bool usableW;
+    private bool usableR;
+    private bool enoughluth;
+
+    private float Qcost;
+    private float Wcost;
+    private float maxluth;
 
     // Use this for initialization
     void Start()
     {
         bas = new Vector3(0, 0, 0);
 
+        Qcost = 20;
+        Wcost = 20;
+        maxluth = 100;
+        enoughluth = true;
+
+        _pc = _GOpc.GetComponent<PlayerController>();
 
         _slowMesh = _slow.GetComponent<MeshRenderer>();
         _redemptionMesh = _redemption.GetComponent<MeshRenderer>();
@@ -46,9 +70,17 @@ public class Support : MonoBehaviour
         _taricColl = _taric.GetComponent<SphereCollider>();
         _slowColl = _slow.GetComponent<CapsuleCollider>();
 
+        _psW = _TransformPsW.GetComponent<ParticleSystem>();
+
         _slowMesh.enabled = false;
         _redemptionMesh.enabled = false;
         _taricMesh.enabled = false;
+
+        usableQ = true;
+        usableW = true;
+        usableR = true;
+
+
 
 
         //_materialslow = _slow.GetComponent<Renderer>().material;
@@ -69,46 +101,76 @@ public class Support : MonoBehaviour
             _taric.transform.position = bas;
         }
 
+        if (_pc.getLuth() < 20)
+        {
+            enoughluth = false;
+        }
+        else { enoughluth = true; }
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             _slowMesh.enabled = true;
-            
+
         }
 
+        
         if (Input.GetKeyUp(KeyCode.Q))
         {
             _slowMesh.enabled = false;
 
-            _slowColl.enabled = true;
+            if (usableQ && enoughluth)
+            {
+                usableQ = false;
 
-            coroutineQ = FieldSlowDuration(_slowColl);
-            StartCoroutine(coroutineQ);
+                GetComponent<PlayerController>().DecreaseLùth(Qcost);
 
+                _slowColl.enabled = true;
+
+                coroutineQ = FieldSlowDuration(_slowColl);
+                StartCoroutine(coroutineQ);
+
+                coroutineCDQ = CooldownQ(10.0f);
+                StartCoroutine(coroutineCDQ);
+
+            }
         }
 
 
         if (Input.GetKeyDown(KeyCode.W))
         {
-            //appena clicka il mouse prende la mesh renderer del redemption e la abilita
             _redemptionMesh.enabled = true;
         }
 
+        
         if (Input.GetKeyUp(KeyCode.W))
         {
-
-            //quando il mouse viene alzato disabilita la mesh renderer e abilita il collider
             _redemptionMesh.enabled = false;
 
-            coroutineCasting = CastingDuration(_redemptionColl, 3.0f, visibileRedemption);
-            StartCoroutine(coroutineCasting);
-            
+            if (usableW && enoughluth)
+            {
+                usableW = false;
+
+                GetComponent<PlayerController>().DecreaseLùth(Wcost);
+
+                _TransformPsW.transform.position = new Vector3(_redemption.transform.position.x, 0.5f, _redemption.transform.position.z);
+                _psW.Clear();
+                _psW.Simulate(0.0f, true, true);
+                _psW.Play();
+
+                coroutineCasting = CastingDuration(3.0f);
+                StartCoroutine(coroutineCasting);
+
+                coroutineCDW = CooldownW(10.0f);
+                StartCoroutine(coroutineCDW);
+
+            }
         }
 
-        if (visibileRedemption)
+        /*if (visibileRedemption)
         {
             coroutineW = Instant(_redemptionColl, visibileRedemption);
             StartCoroutine(coroutineW);
-        }
+        }*/
 
 
 
@@ -117,21 +179,25 @@ public class Support : MonoBehaviour
             _taricMesh.enabled = true;
         }
 
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            _taricMesh.enabled = false;
+        if (usableR) {
 
-            _taricColl.enabled = true;
+            if (Input.GetKeyUp(KeyCode.R))
+            {
+                GetComponent<PlayerController>().DecreaseLùth(maxluth);
+                _taricMesh.enabled = false;
 
-            coroutineCasting1 = Instant(_taricColl, visibileTaric);
-            StartCoroutine(coroutineCasting1);
+                _taricColl.enabled = true;
+
+                coroutineCasting1 = Instant(_taricColl, visibileTaric);
+                StartCoroutine(coroutineCasting1);
+            }
         }
 
-        if (visibileTaric)
+        /*if (visibileTaric)
         {
             coroutineR = Instant(_taricColl, visibileTaric);
             StartCoroutine(coroutineR);
-        }
+        }*/
 
 
     }
@@ -154,11 +220,30 @@ public class Support : MonoBehaviour
 
     }
 
-    public IEnumerator CastingDuration(Collider cast, float dur, bool vis) {
+    public IEnumerator CastingDuration(float dur) {
+
 
         yield return new WaitForSeconds(dur);
-        cast.enabled = true;
-        vis = true;
+        _redemptionColl.enabled = true;
+        yield return new WaitForSeconds(0.5f);
+        _redemptionColl.enabled = false;
+        _psW.Clear();
+        _psW.Simulate(0.0f, true, true);
+        _psW.Stop();
+
+    }
+
+    private IEnumerator CooldownQ(float dur)
+    {
+        yield return new WaitForSeconds(dur);
+        usableQ = true;
+
+    }
+    private IEnumerator CooldownW(float dur)
+    {
+        yield return new WaitForSeconds(dur);
+        usableW = true;
+
     }
 
 

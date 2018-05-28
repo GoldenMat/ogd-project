@@ -10,17 +10,24 @@ public class Tank : MonoBehaviour {
     private IEnumerator coroutineW;
     private IEnumerator coroutineR;
 
+    private IEnumerator coroutineCDQ;
+    private IEnumerator coroutineCDW;
+    private IEnumerator coroutineCDR;
+
     public GameObject _shield;
     public GameObject _cono;
-    public GameObject _taunt;
+    public GameObject _pull;
+
+    public GameObject _GOpc;
+    private PlayerController _pc;
 
 
     private MeshRenderer _shieldMesh;
     private MeshRenderer _conoMesh;
-    private MeshRenderer _tauntMesh;
+    private MeshRenderer _pullMesh;
 
     private MeshCollider _conoColl;
-    private SphereCollider _tauntColl;
+    private SphereCollider _pullColl;
     private MeshCollider _shieldColl;
 
 
@@ -30,24 +37,46 @@ public class Tank : MonoBehaviour {
 
     private Vector3 bas;
 
+    private bool usableQ;
+    private bool usableW;
+    private bool usableR;
+    private bool enoughluth;
+
+    private float Qcost;
+    private float Wcost;
+    private float maxluth;
+
+
+
 
     // Use this for initialization
     void Start()
     {
         bas = new Vector3(0, 0, 0);
 
+        Qcost = 20;
+        Wcost = 20;
+        maxluth = 100;
+
+        enoughluth = true;
+
+        _pc = _GOpc.GetComponent<PlayerController>();
 
         _shieldMesh = _shield.GetComponent<MeshRenderer>();
         _conoMesh = _cono.GetComponent<MeshRenderer>();
-        _tauntMesh = _taunt.GetComponent<MeshRenderer>();
+        _pullMesh = _pull.GetComponent<MeshRenderer>();
 
         _conoColl = _cono.GetComponent<MeshCollider>();
-        _tauntColl = _taunt.GetComponent<SphereCollider>();
+        _pullColl = _pull.GetComponent<SphereCollider>();
         _shieldColl = _shield.GetComponent<MeshCollider>();
 
         _shieldMesh.enabled = false;
         _conoMesh.enabled = false;
-        _tauntMesh.enabled = false;
+        _pullMesh.enabled = false;
+
+        usableQ = true;
+        usableW = true;
+        usableR = true;
 
         _materialShield = _shield.GetComponent<Renderer>();
     }
@@ -72,9 +101,15 @@ public class Tank : MonoBehaviour {
             bas = hit.point;
             bas.y = 0;
 
-            _taunt.transform.position = bas;
+            _pull.transform.position = bas;
 
         }
+
+        if (_pc.getLuth() < 20)
+        {
+            enoughluth = false;
+        }
+        else { enoughluth = true; }
 
 
 
@@ -88,17 +123,28 @@ public class Tank : MonoBehaviour {
 
         }
 
+        
         if (Input.GetKeyUp(KeyCode.Q))
         {
-            //_shieldMesh.enabled = false;
+            if (usableQ && enoughluth)
+            {
+                //_shieldMesh.enabled = false;
 
-            _materialShield.material = _SpellMaterialShield;
+                usableQ = false;
 
-            _shieldColl.enabled = true;
+                GetComponent<PlayerController>().DecreaseLùth(Qcost);
 
-            coroutineQ = ShieldDuration(_shieldColl);
-            StartCoroutine(coroutineQ);
+                _materialShield.material = _SpellMaterialShield;
 
+                _shieldColl.enabled = true;
+
+                coroutineQ = ShieldDuration(_shieldColl);
+                StartCoroutine(coroutineQ);
+
+                coroutineCDQ = Cooldown(10.0f, usableQ);
+                StartCoroutine(coroutineCDQ);
+
+            }
         }
 
 
@@ -110,34 +156,47 @@ public class Tank : MonoBehaviour {
             _conoMesh.enabled = true;
         }
 
-        if (Input.GetKeyUp(KeyCode.W))
+        if (usableW && enoughluth)
         {
+            if (Input.GetKeyUp(KeyCode.W))
+            {
+                usableW = false;
 
-            //quando il mouse viene alzato disabilita la mesh renderer e abilita il collider
-            _conoMesh.enabled = false;
+                GetComponent<PlayerController>().DecreaseLùth(Wcost);
+                //quando il mouse viene alzato disabilita la mesh renderer e abilita il collider
+                _conoMesh.enabled = false;
 
-            _conoColl.enabled = true;
+                _conoColl.enabled = true;
 
-            coroutineW = InstantStun(_conoColl);
-            StartCoroutine(coroutineW);
+                coroutineW = InstantStun(_conoColl);
+                StartCoroutine(coroutineW);
+
+                coroutineCDW = Cooldown(10.0f, usableW);
+                StartCoroutine(coroutineCDW);
+
+            }
 
         }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            _tauntMesh.enabled = true;
+            _pullMesh.enabled = true;
         }
 
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            _tauntMesh.enabled = false;
+        if (usableR) { 
+            if (Input.GetKeyUp(KeyCode.R))
 
-            _tauntColl.enabled = true;
+            {
 
-            //coroutineR = InstantDamage(_tauntColl);
-            //StartCoroutine(coroutineR);
+                GetComponent<PlayerController>().DecreaseLùth(maxluth);
+                _pullMesh.enabled = false;
+
+                _pullColl.enabled = true;
+
+                //coroutineR = InstantDamage(_pullColl);
+                //StartCoroutine(coroutineR);
+            }
         }
-
 
     }
 
@@ -161,6 +220,13 @@ public class Tank : MonoBehaviour {
     {
         yield return new WaitForSeconds(0.5f);
         stun.enabled = false;
+
+    }
+
+    private IEnumerator Cooldown(float dur, bool usable)
+    {
+        yield return new WaitForSeconds(dur);
+        usable = true;
 
     }
 

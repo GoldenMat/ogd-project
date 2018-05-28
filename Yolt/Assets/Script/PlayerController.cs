@@ -1,24 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
-    public GameObject GameManager;
+    private GameObject GameManager;
 
+    public Camera cam;
     private static float _lùth;
     private float _maxlùth;
     private bool lùthfinito;
 
+    private Vector3 bas;
+
+    public GameObject transfPanel;
+    public Button _asbtn;
+    public Button _tankbtn;
+    public Button _supbtn;
+
     private bool alive;
-    public bool resurrection;
+    private bool resurrection;
     private bool transformable;
+    private bool clickingPlayer;
+
+    public GameObject player;
+    public GameObject ghost;
+    public GameObject assassin;
+    public GameObject tank;
+    public GameObject support;
+    private GameObject actual;
+    private GameObject other;
 
     //public Vector3 _Slots;
     public bool[] _Slots;
 
-    //assassin = 0; tank = 1; support = 2;
-    public enum CLASSES {assassin, tank, support};
+    //player = 0, ghost = 1, assassin = 2; tank = 3; support = 4;
+    public enum CLASSES {player, ghost, assassin, tank, support};
 
     private Health _playerHealth;
     private GameManager _gameManager;
@@ -29,8 +47,15 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+        state = CLASSES.player;
+        actual = player;
+
+        transfPanel.SetActive(false);
+
+        clickingPlayer = false;
         alive = true;
-        transformable = false;
+        //transformable = false;
+        transformable = true;
         resurrection = false;
 
         lùthfinito = false;
@@ -38,7 +63,7 @@ public class PlayerController : MonoBehaviour {
         _lùth = 0;
         _maxlùth = 100;
 
-        _gameManager = GameManager.GetComponent<GameManager>();
+        //_gameManager = GameManager.GetComponent<GameManager>();
 
         
 
@@ -58,12 +83,114 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        Ray pos = cam.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(pos.origin, pos.direction * 30, Color.yellow, 1);
+        RaycastHit hit;
+
+        if (Physics.Raycast(pos, out hit))
+        {
+            /*bas = hit.collider.bounds.center;
+            bas.y = 0;*/
+
+            if (hit.collider.gameObject.tag == "Player")
+            {
+                other = hit.collider.gameObject;
+                clickingPlayer = true;
+            }
+            else {
+                clickingPlayer = false;
+            }
+
+            
+
+        }
+
+
+        switch ((int)state) {
+
+            case 0:{
+                    Debug.Log("Sono un player");
+                    actual.SetActive(false);
+                    player.SetActive(true);
+                    /*player.SetActive(true);
+                    ghost.SetActive(false);
+                    assassin.SetActive(false);
+                    tank.SetActive(false);
+                    support.SetActive(false);*/
+
+                    break;
+                }
+            case 1: {
+                    Debug.Log("Sono un ghost");
+                    actual.SetActive(false);
+                    ghost.SetActive(true);
+                    /*player.SetActive(false);
+                    ghost.SetActive(true);
+                    assassin.SetActive(false);
+                    tank.SetActive(false);
+                    support.SetActive(false);*/
+
+                    break;
+                }
+
+            case 2:
+                {
+                    actual.SetActive(false);
+                    assassin.SetActive(true);
+                    Debug.Log("Sono un assassino");
+                    /*player.SetActive(false);
+                    ghost.SetActive(false);
+                    assassin.SetActive(true);
+                    tank.SetActive(false);
+                    support.SetActive(false);*/
+
+                    break;
+                }
+            case 3:
+                {
+                    actual.SetActive(false);
+                    tank.SetActive(true);
+                    Debug.Log("Sono un tank");
+                    /*player.SetActive(false);
+                    ghost.SetActive(false);
+                    assassin.SetActive(false);
+                    tank.SetActive(true);
+                    support.SetActive(false);*/
+
+                    break;
+                }
+            case 4:
+                {
+                    actual.SetActive(false);
+                    support.SetActive(true);
+                    Debug.Log("Sono un support");
+                    /*player.SetActive(false);
+                    ghost.SetActive(true);
+                    assassin.SetActive(false);
+                    tank.SetActive(false);
+                    support.SetActive(false);*/
+
+                    break;
+                }
+
+        }
+
+
+
+        
+
         if (_playerHealth._health == 0)
         {
             tag = "Ghost";
             alive = false;
+            state = CLASSES.ghost;
             //change the model in the ghost
 
+        }
+
+        if (_lùth != _maxlùth) {
+            //transformable = false;
+            transformable = true;
         }
 
 
@@ -79,9 +206,16 @@ public class PlayerController : MonoBehaviour {
 
 
 
-        if (transformable) {
-            if (Input.GetKeyDown("Transform"))
+        if (transformable && clickingPlayer) {
+            
+            if (Input.GetMouseButtonDown(0))
             {
+                _asbtn.interactable = _Slots[0];
+                _tankbtn.interactable = _Slots[1];
+                _supbtn.interactable = _Slots[2];
+
+                transfPanel.SetActive(true);
+            }
 
                 //canvas con i bottoni
 
@@ -99,13 +233,6 @@ public class PlayerController : MonoBehaviour {
                  * 
                  * 
                 */
-
-                
-            
-
-            }
-
-
         }
 		
 	}
@@ -144,4 +271,10 @@ public class PlayerController : MonoBehaviour {
         }
 
     }
+
+    public float getLuth() {
+        return _lùth;
+    }
+
+    
 }
